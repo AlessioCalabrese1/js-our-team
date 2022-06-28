@@ -23,7 +23,7 @@ const ourTeam = [
     {
         name : "Walter Gordon" ,
         role : "Office Manager" ,
-        identificationImage : "angela-caroll-chief-editor.jpg"
+        identificationImage : "walter-gordon-office-manager.jpg"
     },
 
     {
@@ -51,4 +51,21 @@ for (let index = 0; index < ourTeam.length; index++) {
     console.log(`Il nome del ${index} membro è: + ${ourTeam[index].name}`);
     console.log(`La posizione del ${index} membro è: " + ${ourTeam[index].role}`);
     console.log(`Il path della foto del ${index} membro è: " + ${ourTeam[index].identificationImage}`);
+}
+
+let cardContainer = document.getElementById("card-container");
+
+for (let index = 0; index < ourTeam.length; index++) {
+    let card = document.createElement("div");
+    let img = document.createElement("img");
+    ourTeam[index].identificationImage = `./img/${ourTeam[index].identificationImage}`;
+    console.log(ourTeam[index].identificationImage);
+    img.setAttribute("src" , ourTeam[index].identificationImage);
+    img.classList.add("img-fluid");
+    card.classList.add("text-center")
+    card.append(img);
+    card.append(`${ourTeam[index].name}`);
+    card.append(`${ourTeam[index].role}`);
+    cardContainer.append(card);
+    
 }
