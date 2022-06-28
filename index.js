@@ -59,13 +59,25 @@ for (let index = 0; index < ourTeam.length; index++) {
     let card = document.createElement("div");
     let img = document.createElement("img");
     ourTeam[index].identificationImage = `./img/${ourTeam[index].identificationImage}`;
-    console.log(ourTeam[index].identificationImage);
     img.setAttribute("src" , ourTeam[index].identificationImage);
-    img.classList.add("img-fluid");
-    card.classList.add("text-center")
+
+
+    img.classList.add("card-img-top");
+    card.classList.add("card" , "p-0", "w-30");
     card.append(img);
-    card.append(`${ourTeam[index].name}`);
-    card.append(`${ourTeam[index].role}`);
+
+    let cardBody = document.createElement("div");
+    cardBody.classList.add("card-body");
+    card.append(cardBody);
+
+    let title = document.createElement("h4");
+    title.innerHTML = ourTeam[index].name;
+    cardBody.append(title);
+
+    let textRole = document.createElement("p");
+    textRole.classList.add("card-text");
+    textRole.innerHTML = ourTeam[index].role;
+    cardBody.append(textRole);
+
     cardContainer.append(card);
-    
 }
